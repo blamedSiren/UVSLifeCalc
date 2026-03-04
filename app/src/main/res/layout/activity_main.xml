@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_main"
+    tools:context=".MainActivity">
+
+    <!-- Vertical guideline: left column (~60%) | right column (~40%) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <!-- Row 1 end: bottom of opp health + opp buttons (~30% height) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_h1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <!-- Row 2 end: bottom of Attack button (~42%) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_h2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <!-- Row 3 end: bottom of Reset/Set Max row (~55%) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_h3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <!-- Row 4 end: bottom of my health + my buttons (~85%) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_h4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <!-- OPPONENT HEALTH (top-left) -->
+    <TextView
+        android:id="@+id/opp_health"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:autoSizeMaxTextSize="148sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/lobster"
+        android:gravity="start|center_vertical"
+        android:text="25"
+        android:textColor="#F69EFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- OPPONENT + button (top-right) -->
+    <Button
+        android:id="@+id/opp_button_up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#EC8AFF"
+        android:fontFamily="@font/lobster"
+        android:text="+"
+        android:textColor="#70E8DE"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/opp_button_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/design_default_color_error" />
+
+    <!-- OPPONENT - button -->
+    <Button
+        android:id="@+id/opp_button_down"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#EC8AFF"
+        android:fontFamily="@font/lobster"
+        android:text="-"
+        android:textColor="#70E8DE"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/opp_button_up" />
+
+    <!-- ATTACK button -->
+    <Button
+        android:id="@+id/attack_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#70E8DE"
+        android:fontFamily="@font/lobster"
+        android:text="Attack!"
+        android:textColor="#F69EFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h1" />
+
+    <!-- RESET button -->
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#70E8DE"
+        android:fontFamily="@font/lobster"
+        android:text="Reset"
+        android:textColor="#F69EFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h2" />
+
+    <!-- SET MAX button -->
+    <Button
+        android:id="@+id/set_max_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#70E8DE"
+        android:fontFamily="@font/lobster"
+        android:text="Set Max"
+        android:textColor="#F69EFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h2" />
+
+    <!-- MY HEALTH (bottom-left) -->
+    <TextView
+        android:id="@+id/my_health"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:autoSizeMaxTextSize="148sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/lobster"
+        android:gravity="start|center_vertical"
+        android:text="21"
+        android:textColor="#70E8DE"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h3" />
+
+    <!-- MY + button -->
+    <Button
+        android:id="@+id/me_button_up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#70E8DE"
+        android:fontFamily="@font/lobster"
+        android:text="+"
+        android:textColor="#F69EFF"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/me_button_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h3" />
+
+    <!-- MY - button -->
+    <Button
+        android:id="@+id/me_button_down"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#70E8DE"
+        android:fontFamily="@font/lobster"
+        android:text="-"
+        android:textColor="#F69EFF"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/me_button_up" />
+
+    <!-- DEFEND button (bottom-left) -->
+    <Button
+        android:id="@+id/defend_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#70E8DE"
+        android:fontFamily="@font/lobster"
+        android:text="Defend!"
+        android:textColor="#F69EFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
