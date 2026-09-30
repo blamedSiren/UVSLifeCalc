@@ -52,9 +52,9 @@ public class Attack extends AppCompatActivity {
         oH.setText(getIntent().getStringExtra("opHealth"));
 
         final int[] colors = {
-                Color.parseColor("#f06f24"), // orange
-                Color.parseColor("#f1c835"), // yellow
-                Color.parseColor("#cd1720")  // red
+                Color.parseColor("#f06f24"), // mid
+                Color.parseColor("#f1c835"), // low
+                Color.parseColor("#cd1720")  // high
         };
         final int[] index = {0};
 

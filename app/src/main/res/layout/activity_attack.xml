@@ -71,13 +71,13 @@
         android:fontFamily="@font/lobster"
         android:gravity="center"
         android:text="My Health"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/my_health_3"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/my_health_3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/my_health_3"
@@ -88,13 +88,13 @@
         android:fontFamily="@font/lobster"
         android:gravity="center"
         android:text="21"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/m_m"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_health_label"
-        app:layout_constraintBottom_toTopOf="@+id/m_m" />
+        app:layout_constraintTop_toBottomOf="@+id/my_health_label" />
 
     <Button
         android:id="@+id/m_m"
@@ -103,13 +103,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#EC8AFF"
+        android:backgroundTint="@color/primary"
         android:text="-"
-        android:textColor="#70E8DE"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h1"
         app:layout_constraintEnd_toStartOf="@+id/m_p"
-        app:layout_constraintTop_toBottomOf="@+id/my_health_3"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_health_3" />
 
     <Button
         android:id="@+id/m_p"
@@ -117,47 +117,47 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#EC8AFF"
+        android:backgroundTint="@color/primary"
         android:text="+"
-        android:textColor="#70E8DE"
-        app:layout_constraintStart_toEndOf="@+id/m_m"
+        android:textColor="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h1"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/my_health_3"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h1" />
+        app:layout_constraintStart_toEndOf="@+id/m_m"
+        app:layout_constraintTop_toBottomOf="@+id/my_health_3" />
 
     <TextView
         android:id="@+id/opp_health_label"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="4dp"
         android:fontFamily="@font/lobster"
         android:gravity="center"
         android:text="Opponent's Health"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/opp_health_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/opp_health_3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/opp_health_3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/lobster"
         android:gravity="center"
         android:text="25"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/o_m"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/opp_health_label"
-        app:layout_constraintBottom_toTopOf="@+id/o_m" />
+        app:layout_constraintTop_toBottomOf="@+id/opp_health_label" />
 
     <Button
         android:id="@+id/o_m"
@@ -166,13 +166,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#EC8AFF"
+        android:backgroundTint="@color/primary"
         android:text="-"
-        android:textColor="#70E8DE"
-        app:layout_constraintStart_toEndOf="@+id/vertical_guideline"
+        android:textColor="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h1"
         app:layout_constraintEnd_toStartOf="@+id/o_p"
-        app:layout_constraintTop_toBottomOf="@+id/opp_health_3"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h1" />
+        app:layout_constraintStart_toEndOf="@+id/vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/opp_health_3" />
 
     <Button
         android:id="@+id/o_p"
@@ -180,13 +180,13 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#EC8AFF"
+        android:backgroundTint="@color/primary"
         android:text="+"
-        android:textColor="#70E8DE"
-        app:layout_constraintStart_toEndOf="@+id/o_m"
+        android:textColor="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opp_health_3"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h1" />
+        app:layout_constraintStart_toEndOf="@+id/o_m"
+        app:layout_constraintTop_toBottomOf="@+id/opp_health_3" />
 
     <!-- ═══════════════════════════════════
          SPEED ROW
@@ -200,51 +200,51 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="@color/mid_attack"
         android:fontFamily="@font/lobster"
         android:text="4"
-        android:textColor="#70E8DE"
+        android:textColor="@color/secondary"
         android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v_left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h1"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h1" />
 
     <Button
         android:id="@+id/attack_speed_up"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="#EC8AFF"
+        android:backgroundTint="@color/primary"
         android:text="↑"
         android:textAlignment="center"
-        android:textColor="#70E8DE"
+        android:textColor="@color/secondary"
         android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintBottom_toTopOf="@+id/attack_speed_down"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h1"
-        app:layout_constraintBottom_toTopOf="@+id/attack_speed_down" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h1" />
 
     <Button
         android:id="@+id/attack_speed_down"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#EC8AFF"
+        android:backgroundTint="@color/primary"
         android:text="↓"
         android:textAlignment="center"
-        android:textColor="#70E8DE"
+        android:textColor="@color/secondary"
         android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attack_speed_up"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h2" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintTop_toBottomOf="@+id/attack_speed_up" />
 
     <!-- ═══════════════════════════════════
          DAMAGE ROW
@@ -258,51 +258,51 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#70E8DE"
+        android:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="4"
-        android:textColor="#F69EFF"
+        android:textColor="@color/primary"
         android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h3"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v_left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h2"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h2" />
 
     <Button
         android:id="@+id/attack_damage_up"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="#70E8DE"
+        android:backgroundTint="@color/secondary"
         android:text="↑"
         android:textAlignment="center"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintBottom_toTopOf="@+id/attack_damage_down"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h2"
-        app:layout_constraintBottom_toTopOf="@+id/attack_damage_down" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h2" />
 
     <Button
         android:id="@+id/attack_damage_down"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#70E8DE"
+        android:backgroundTint="@color/secondary"
         android:text="↓"
         android:textAlignment="center"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attack_damage_up"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h3" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_v_left"
+        app:layout_constraintTop_toBottomOf="@+id/attack_damage_up" />
 
     <!-- ═══════════════════════════════════
          BLOCK BUTTONS (3 equal columns)
@@ -331,10 +331,10 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#70E8DE"
+        android:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Full Block"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
@@ -350,10 +350,10 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#70E8DE"
+        android:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Half Block"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
@@ -369,10 +369,10 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#70E8DE"
+        android:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Unblocked"
-        android:textColor="#EC8AFF"
+        android:textColor="@color/primary"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
