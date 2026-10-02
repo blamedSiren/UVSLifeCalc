@@ -13,7 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     Button opp_up, opp_down, me_up, me_down, reset, max_set, attack, defend;
     TextView opp, me;
@@ -91,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, SetMax.class);
             maxLauncher.launch(i);
         });
+        Button setColors = findViewById(R.id.set_color_button);
+        setColors.setOnClickListener(v -> startActivity(new Intent(this,
+                ColorSet.class)));
 
     }
 
