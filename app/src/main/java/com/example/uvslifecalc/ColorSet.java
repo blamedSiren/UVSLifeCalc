@@ -13,12 +13,13 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class ColorSet extends AppCompatActivity {
+public class ColorSet extends BaseActivity {
     private static final AppColors.Role[] ROLES={
             AppColors.Role.PRIMARY,
             AppColors.Role.SECONDARY,
@@ -33,8 +34,8 @@ public class ColorSet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        setContentView(R.layout.color_selector);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.color_selector), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -48,16 +49,31 @@ public class ColorSet extends AppCompatActivity {
         inputs = new EditText[]{primary_color, secondary_color, primary_background_color,
                 secondary_background_color};
         for (int i = 0; i < ROLES.length; i++){
-            inputs[i].setText(String.format("#%08X", AppColors.getValue(ROLES[1])));
+            inputs[i].setText(String.format("#%08X", AppColors.getValue(ROLES[i])));
         }
         test.setOnClickListener(v ->{
             Integer[]colors = readAndValidate();
             if(colors == null) {
                 Toast.makeText(this, "Fix the highlighted fields to test",
-                        Toast.LENGTH_SHORT);
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
             preview(colors);
+        });
+        submit.setOnClickListener(v -> {
+            Integer[] colors = readAndValidate();
+            if (colors == null) {
+                Toast.makeText(this, "Fix the highlighted fields first", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            AppColors.Role[] roles = AppColors.Role.values();
+            for (int i = 0; i < roles.length; i++) {
+                AppColors.set(roles[i], colors[i]);
+            }
+
+            Toast.makeText(this, "Colors saved", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
     private Integer[] readAndValidate(){
@@ -82,11 +98,11 @@ public class ColorSet extends AppCompatActivity {
 
         GradientDrawable gradient = new GradientDrawable(
                 GradientDrawable.Orientation.TOP_BOTTOM, new int[]{bgTop, bgBottom});
-        findViewById(R.id.main).setBackground(gradient);
+        findViewById(R.id.color_selector).setBackground(gradient);
 
         for (Button b : new Button[]{submit, test}) {
-            b.setBackgroundTintList(ColorStateList.valueOf(primary));
-            b.setTextColor(secondary);
+            b.setBackgroundTintList(ColorStateList.valueOf(secondary));
+            b.setTextColor(primary);
         }
     }
 }

@@ -79,7 +79,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/primary"
+        app:backgroundTint="@color/primary"
         android:fontFamily="@font/lobster"
         android:text="+"
         android:textColor="@color/secondary"
@@ -101,7 +101,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/primary"
+        app:backgroundTint="@color/primary"
         android:fontFamily="@font/lobster"
         android:text="-"
         android:textColor="@color/secondary"
@@ -122,7 +122,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/secondary"
+        app:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Attack!"
         android:textColor="@color/primary"
@@ -144,7 +144,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/secondary"
+        app:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Reset"
         android:textColor="@color/primary"
@@ -166,7 +166,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/secondary"
+        app:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Set Max"
         android:textColor="@color/primary"
@@ -193,7 +193,7 @@
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/lobster"
         android:gravity="start|center_vertical"
-        android:text="21"
+        android:text="25"
         android:textColor="@color/secondary"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
@@ -207,43 +207,43 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/secondary"
-        android:fontFamily="@font/lobster"
-        android:text="+"
-        android:textColor="@color/primary"
         android:autoSizeMaxTextSize="148sp"
         android:autoSizeMinTextSize="12sp"
         android:autoSizeTextType="uniform"
+        android:fontFamily="@font/lobster"
+        android:text="+"
+        android:textColor="@color/primary"
+        app:backgroundTint="@color/secondary"
         app:layout_constraintBottom_toTopOf="@+id/me_button_down"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_h3" />
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <!-- MY - button -->
+
+    <!-- DEFEND button (bottom-left) -->
+
     <Button
         android:id="@+id/me_button_down"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/secondary"
-        android:fontFamily="@font/lobster"
-        android:text="-"
-        android:textColor="@color/primary"
         android:autoSizeMaxTextSize="148sp"
         android:autoSizeMinTextSize="12sp"
         android:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
+        android:fontFamily="@font/lobster"
+        android:text="-"
+        android:textColor="@color/primary"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/me_button_up" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_h4" />
 
-    <!-- DEFEND button (bottom-left) -->
     <Button
         android:id="@+id/defend_button"
         android:layout_width="0dp"
@@ -252,7 +252,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/secondary"
+        app:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Defend!"
         android:textColor="@color/primary"
@@ -273,7 +273,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/secondary"
+        app:backgroundTint="@color/secondary"
         android:fontFamily="@font/lobster"
         android:text="Set Colors"
         android:textColor="@color/primary"
@@ -285,5 +285,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/attack_button"
         app:layout_constraintTop_toBottomOf="@+id/opp_button_down" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/primary"
+        android:fontFamily="@font/lobster"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="128sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.71" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

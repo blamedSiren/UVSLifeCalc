@@ -48,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void applyTheme(int primary, int secondary, int bgPrimary, int bgSecondary) {
         contentRoot.setBackground(new GradientDrawable(
-                GradientDrawable.Orientation.TOP_BOTTOM, new int[]{bgPrimary, bgSecondary}));
+                GradientDrawable.Orientation.BOTTOM_TOP, new int[]{bgPrimary, bgSecondary}));
         for (Binding b : bindings) b.apply(primary, secondary);
     }
 

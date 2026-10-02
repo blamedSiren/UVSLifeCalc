@@ -12,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SetMax extends AppCompatActivity {
+public class SetMax extends BaseActivity {
     Button done;
     EditText opp, me;
 

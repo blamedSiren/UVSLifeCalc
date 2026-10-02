@@ -2,6 +2,9 @@ package com.example.uvslifecalc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,14 +15,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
+import android.graphics.Color;
+
+import java.util.Locale;
 
 public class MainActivity extends BaseActivity {
+    private static final long DURATION_MS = 60L * 60L * 1000L;  // 60 minutes
+    private static final long TICK_MS = 250;
+
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private TextView timerText;
+    private TimerViewModel timerVm;
+
+    private final Runnable tick = new Runnable() {
+        @Override public void run() {
+            updateTimer();
+            handler.postDelayed(this, TICK_MS);
+        }
+    };
 
     Button opp_up, opp_down, me_up, me_down, reset, max_set, attack, defend;
     TextView opp, me;
 
     public static String opp_max = "25";
-    public static String me_max = "21";
+    public static String me_max = "25";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +61,23 @@ public class MainActivity extends BaseActivity {
         max_set = findViewById(R.id.set_max_button);
         attack = findViewById(R.id.attack_button);
         defend = findViewById(R.id.defend_button);
+        timerText = findViewById(R.id.timer);
+        timerVm = new ViewModelProvider(this).get(TimerViewModel.class);
+
+        timerText.setOnClickListener(v -> {
+            if (timerVm.startTime < 0) {          // only start if it isn't already running
+                timerVm.startTime = SystemClock.elapsedRealtime();
+                updateTimer();
+            }
+        });
+
+        // Long-press to stop and return to 60:00
+        timerText.setOnLongClickListener(v -> {
+            timerVm.startTime = -1;
+            updateTimer();
+            return true;
+        });
+
 
         attack.setOnClickListener(v -> {
             Intent i = new Intent(this, Attack.class);
@@ -96,6 +133,36 @@ public class MainActivity extends BaseActivity {
                 ColorSet.class)));
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.post(tick);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(tick);
+    }
+    private void updateTimer(){
+        if (timerVm.startTime < 0) {
+            timerText.setText("60:00");
+            timerText.setTextColor(AppColors.getValue(AppColors.Role.PRIMARY));
+            return;
+        }
+        long elapsed = SystemClock.elapsedRealtime() - timerVm.startTime;
+        long remaining = DURATION_MS - elapsed;
+        boolean overtime = remaining <= 0;
+        //Round up while counting down, down while counting up
+        long secs = overtime ? (-remaining) / 1000 : (remaining + 999) / 1000;
+        String sign = (overtime && secs > 0) ? "-" : "";
+        timerText.setText(String.format(Locale.US, "%s%02d:%02d", sign, secs / 60, secs % 60));
+
+        timerText.setTextColor(overtime
+                ? Color.RED
+                : AppColors.getValue(AppColors.Role.PRIMARY));
+    }
+
 
     public void increase(TextView t, String max) {
         String ts = t.getText().toString().trim();

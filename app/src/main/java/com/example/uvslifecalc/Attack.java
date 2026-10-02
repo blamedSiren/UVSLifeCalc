@@ -13,7 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Attack extends AppCompatActivity {
+public class Attack extends BaseActivity {
 
     Button speed, speedUp, speedDown, damage, damageUp, damageDown, uB, hB, fB, oUp, oDown, mUp,
             mDown;
