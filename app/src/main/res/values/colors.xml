@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#F69EFF</color>
+    <color name="secondary">#4fbbc4</color>
+    <color name="mid_attack">#FF5722</color>
+    <color name="high_attack">#cd1720</color>
+    <color name="low_attack">#f1c835</color>
+    <color name="gradient_color_one">#63005E</color>
+    <color name="gradient_color_two">#FFB3F6</color>
 </resources>
