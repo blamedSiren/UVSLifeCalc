@@ -35,7 +35,7 @@ public final class AppColors {
 
     private AppColors(){}
         public static void init(Context context){
-            appContext = appContext.getApplicationContext();
+            appContext = context.getApplicationContext();
             prefs = appContext.getSharedPreferences("theme", Context.MODE_PRIVATE);
             for (Role role : Role.values()){
                 int def = ContextCompat.getColor(appContext, role.defaultRes);
@@ -77,5 +77,9 @@ public final class AppColors {
         } catch (IllegalArgumentException e){
             return null;
         }
+    }
+    public static void set(AppColors.Role role, @ColorInt int color) {
+        prefs.edit().putInt(role.key, color).apply();
+        data.get(role).setValue(color);
     }
 }
