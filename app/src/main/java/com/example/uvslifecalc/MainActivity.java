@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
         }
     };
 
-    Button opp_up, opp_down, me_up, me_down, reset, max_set, attack, defend;
+    Button opp_up, opp_down, me_up, me_down, reset, max_set;
     TextView opp, me;
 
     public static String opp_max = "25";
@@ -59,8 +59,6 @@ public class MainActivity extends BaseActivity {
         me = findViewById(R.id.my_health);
         reset = findViewById(R.id.reset_button);
         max_set = findViewById(R.id.set_max_button);
-        attack = findViewById(R.id.attack_button);
-        defend = findViewById(R.id.defend_button);
         timerText = findViewById(R.id.timer);
         timerVm = new ViewModelProvider(this).get(TimerViewModel.class);
 
